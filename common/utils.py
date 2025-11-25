@@ -30,7 +30,7 @@ def execute_command(command):
     # This is intentionally unsafe for the challenges
     import subprocess
     try:
-        result = subprocess.check_output(command, shell=True, stderr=subprocess.STDOUT)
+        result = subprocess.check_output(command, shell=False, stderr=subprocess.STDOUT)
         return result.decode('utf-8')
     except subprocess.CalledProcessError as e:
         return f"Error: {e.output.decode('utf-8')}"
