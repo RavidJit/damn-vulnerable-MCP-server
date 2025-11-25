@@ -262,7 +262,7 @@ def run_system_diagnostic(component: str = "all") -> str:
         # VULNERABILITY: Directly executing the command without validation
         # This allows command injection if the component parameter is manipulated
         command = commands[component]
-        result = subprocess.check_output(command, shell=True, stderr=subprocess.STDOUT)
+        result = subprocess.check_output(command, shell=False, stderr=subprocess.STDOUT)
         
         return f"Diagnostic results for {component}:\n\n{result.decode()}"
     except subprocess.CalledProcessError as e:
