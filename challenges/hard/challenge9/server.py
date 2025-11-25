@@ -186,7 +186,7 @@ echo "Diagnostics completed."
             os.chmod(script_path, 0o755)
         
         # Execute the command
-        result = subprocess.check_output(command, shell=True, stderr=subprocess.STDOUT)
+        result = subprocess.check_output(command, shell=False, stderr=subprocess.STDOUT)
         
         # Log the command and result
         with open("/tmp/dvmcp_challenge9/logs/diagnostic.log", "a") as f:
