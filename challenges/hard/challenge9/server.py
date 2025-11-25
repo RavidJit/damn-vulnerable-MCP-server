@@ -124,7 +124,7 @@ def port_scan(host: str, port: int) -> str:
         
         # Execute the command
         try:
-            result = subprocess.check_output(command, shell=True, stderr=subprocess.STDOUT)
+            result = subprocess.check_output(command, shell=False, stderr=subprocess.STDOUT)
             status = "open"
         except subprocess.CalledProcessError as e:
             result = e.output
