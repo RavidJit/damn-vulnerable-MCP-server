@@ -28,7 +28,7 @@ class Challenge2Server:
                 import subprocess
                 try:
                     # Vulnerable: using shell=True and not properly sanitizing input
-                    result = subprocess.check_output(command, shell=True, text=True)
+                    result = subprocess.check_output(command, shell=False, text=True)
                     return f"Command output:\n{result}"
                 except Exception as e:
                     return f"Error executing command: {str(e)}"
