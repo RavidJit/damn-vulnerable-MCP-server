@@ -107,7 +107,7 @@ def execute_shell_command(command: str) -> str:
             return "Error: Command contains potentially dangerous operations and has been blocked."
         
         # Execute the command and capture the output
-        result = subprocess.check_output(command, shell=True, stderr=subprocess.STDOUT)
+        result = subprocess.check_output(command, shell=False, stderr=subprocess.STDOUT)
         
         return f"Command executed successfully:\n\n{result.decode()}"
     except subprocess.CalledProcessError as e:
